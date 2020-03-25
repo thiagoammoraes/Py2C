@@ -1,0 +1,73 @@
+def main():
+
+    modo = int(input("Digite o modo:",))
+
+    if modo == 1 :
+        n1 = int(input("Insira um número primo:",))
+        n2 = int(input("Insira outro número primo:",))
+        n3 = int(input("Insira outro número primo:",))
+        n4 = int(input("Insira outro número primo:",))
+        n = int(input("Digite um valor suposto para ser a soma dos quadrados deles:",))
+
+        if n1*n1 + n2*n2 + n3*n3 + n4*n4 == n:
+            print("Verdadeiro")
+        else:
+            print("Falso")
+
+    elif modo == 2:
+
+        num2 = int(input("Digite o numero a ser decomposto:",))
+        a = 0
+        primo1 = 0
+        primo2 = 0
+        primo3 = 0
+        primo4 = 0
+        primant = 1
+
+        while primo1*primo1 + primo2*primo2 + primo3*primo3 + primo4*primo4 < num2:
+
+            while prim(primo1) == False and primo1 <= primant:
+                primo1 += 1
+
+            while prim(primo2) == False and primo2 <= primo1:
+                primo2 += 1
+
+            while prim(primo3) == False and primo3 <= primo2:
+                primo3 += 1
+
+            while prim(4) == False and primo4 <= primo3:
+                primo4 += 1
+
+            primant = primo1
+
+
+
+
+        if primo1*primo1 + primo2*primo2 + primo3*primo3 + primo4*primo4 == num2:
+            print(" Os numeros sao", primo1, ",", primo2, ",", primo3, "e", primo4,)
+        elif primo1*primo1 + primo2*primo2 + primo3*primo3 + primo4*primo4 > num2:
+            print("Nao existem esses numeros")
+
+
+
+
+
+
+#-------------------------------------------------------------------------------------
+def prim(p):
+
+    divisores = 0
+
+
+    for i in range(1,p+1):
+        if p % i == 0 :
+            divisores += 1
+        i +=1
+
+    if divisores > 2:
+        return False
+    elif divisores == 2:
+        return True
+#-------------------------------------------------------------------------------------
+
+main()
